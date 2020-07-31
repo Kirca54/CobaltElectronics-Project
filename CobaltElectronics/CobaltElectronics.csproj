@@ -175,7 +175,10 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Kategorija.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Prodavnica.cs" />
+    <Compile Include="Models\Proizvod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
