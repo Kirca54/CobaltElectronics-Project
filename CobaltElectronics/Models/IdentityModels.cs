@@ -29,5 +29,9 @@ namespace CobaltElectronics.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<CobaltElectronics.Models.Proizvod> Proizvods { get; set; }
+
+        public System.Data.Entity.DbSet<CobaltElectronics.Models.Kategorija> Kategorijas { get; set; }
     }
 }
