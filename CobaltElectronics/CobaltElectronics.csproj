@@ -253,6 +253,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Kategorija\Create.cshtml" />
+    <Content Include="Views\Kategorija\Delete.cshtml" />
+    <Content Include="Views\Kategorija\Details.cshtml" />
+    <Content Include="Views\Kategorija\Edit.cshtml" />
+    <Content Include="Views\Kategorija\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -292,14 +297,10 @@
     <Content Include="Views\Proizvod\Details.cshtml" />
     <Content Include="Views\Proizvod\Edit.cshtml" />
     <Content Include="Views\Proizvod\Index.cshtml" />
-    <Content Include="Views\Kategorija\Create.cshtml" />
-    <Content Include="Views\Kategorija\Delete.cshtml" />
-    <Content Include="Views\Kategorija\Details.cshtml" />
-    <Content Include="Views\Kategorija\Edit.cshtml" />
-    <Content Include="Views\Kategorija\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
