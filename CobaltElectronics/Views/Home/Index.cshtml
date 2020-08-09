@@ -1,31 +1,63 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>*@
+
+<style>
+    #kategorii {
+        border: 1px solid gray;
+        background-color: cornflowerblue;
+        border-radius: 20px;
+    }
+
+    #kategorii li {
+        margin: 0 0 10px 0;
+    }
+
+    #kategorii li a {
+        color: black;
+    }
+
+    #kategorii li a:hover {
+        color: red;
+    }
+</style>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+    <div class="col-md-2">
+        <h2>Категории</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            <ul id="kategorii">
+                <li><a href="#">Лаптопи</a></li>
+                <li><a href="#">Персонални компјутери</a></li>
+                <li><a href="#">Додатоци за компјутери</a></li>
+                <li><a href="#">Мобилни телефони</a></li>
+                <li><a href="#">Таблети</a></li>
+                <li><a href="#">Телевизија</a></li>
+                <li><a href="#">Канцеларија</a></li>
+                <li><a href="#">Софтвер</a></li>
+                <li><a href="#">GPS - Навигација</a></li>
+                <li><a href="#">Аудио и опрема</a></li>
+                <li><a href="#">Алати и помагала</a></li>
+                <li><a href="#">Здравје и спорт</a></li>
+            </ul>
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
     </div>
+
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        
+        @Html.Partial("ViewProizvodi")
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    @*<div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>*@
 </div>

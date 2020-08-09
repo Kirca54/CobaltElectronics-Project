@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CobaltElectronics.Models.Proizvod>
+
+<h2>Производи</h2>
+
+<p>
+    @if (User.IsInRole("Moderator")) {
+    @Html.ActionLink("Create New", "Create")
+    }
+</p>
+
+<table class="table" id="dataTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cena)
+                </td>
+                <td>
+                    @if (User.IsInRole("Moderator")) { 
+                    @Html.ActionLink("Edit", "Edit", "Proizvod", new { id = item.Id }) 
+                    @Html.ActionLink("Details", "Details", "Proizvod", new { id = item.Id }) 
+                    @Html.ActionLink("Delete", "Delete", "Proizvod", new { id = item.Id })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).on("ready", function () {
+            $("#dataTable").DataTable();
+        });
+    </script>
+    }
