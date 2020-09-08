@@ -233,6 +233,14 @@
     <Compile Include="Migrations\202009081752580_opisProizvod.designer.cs">
       <DependentUpon>202009081752580_opisProizvod.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009082321160_RequiredFields.cs" />
+    <Compile Include="Migrations\202009082321160_RequiredFields.designer.cs">
+      <DependentUpon>202009082321160_RequiredFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009082322324_fixedFields.cs" />
+    <Compile Include="Migrations\202009082322324_fixedFields.designer.cs">
+      <DependentUpon>202009082322324_fixedFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -516,6 +524,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009081752580_opisProizvod.resx">
       <DependentUpon>202009081752580_opisProizvod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009082321160_RequiredFields.resx">
+      <DependentUpon>202009082321160_RequiredFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009082322324_fixedFields.resx">
+      <DependentUpon>202009082322324_fixedFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

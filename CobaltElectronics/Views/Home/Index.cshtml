@@ -3,12 +3,6 @@
     ViewBag.Title = "Home Page";
 }
 
-@*<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>*@
-
 <style>
     #kategorii {
         border: 1px solid gray;
@@ -48,23 +42,18 @@
                 <li><a href="#">Здравје и спорт</a></li>
             </ul>
         </p>
-        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
     </div>
 
     <div class="col-lg-10">
         @Html.Partial("ViewProizvods")
     </div>
-    @*<div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>*@
 </div>
 
 @section scripts{
     <script>
         $("document").ready(function () {
             $('#proizvoditabela').DataTable({
+                "order": [[3, "desc"]],
                 "columns": [
                     { "orderable": false },
                     { "orderable": true },

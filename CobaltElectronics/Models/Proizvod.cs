@@ -10,12 +10,16 @@ namespace CobaltElectronics.Models
     {
         [Required]
         public int Id { get; set; }
+        [Required]
         [Display(Name ="Слика")]
         public string ImgURL { get; set; }
+        [Required]
         [Display(Name = "Име")]
         public string Ime { get; set; }
+        [Required]
         [Display(Name = "Производител")]
         public string Proizvoditel { get; set; }
+        [Required]
         [Display(Name = "Цена")]    
         public float Cena { get; set; }
         [Display(Name = "Залиха")]

@@ -52,7 +52,7 @@ namespace CobaltElectronics.Controllers
             {
                 db.Proizvods.Add(proizvod);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View(proizvod);
@@ -84,7 +84,7 @@ namespace CobaltElectronics.Controllers
             {
                 db.Entry(proizvod).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             return View(proizvod);
         }
@@ -112,7 +112,7 @@ namespace CobaltElectronics.Controllers
             Proizvod proizvod = db.Proizvods.Find(id);
             db.Proizvods.Remove(proizvod);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
