@@ -43,7 +43,8 @@
                     @Html.DisplayFor(modelItem => item.Proizvoditel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cena) ден.
+                    @*@Html.DisplayFor(modelItem => item.Cena)*@
+                    @item.Cena.ToString("N") ден.
                 </td>
                 <td>
                     @if (item.DaliNaZaliha == true)
