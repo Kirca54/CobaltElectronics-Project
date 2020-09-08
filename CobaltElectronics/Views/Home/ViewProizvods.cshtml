@@ -4,7 +4,7 @@
     <h2>Производи</h2>
 
 <p>
-    <a href="/Proizvods/Create">Create</a>
+    <a href="/Proizvods/Create">Нов производ</a>
 </p>
 
 <table class="table" id="proizvoditabela">
@@ -34,16 +34,16 @@
         {
             <tr>
                 <td>
-                    <img src="@item.ImgURL" style="max-width:150px;max-height:150px;" />
+                    <a href="/Proizvods/Details/@item.Id"><img src="@item.ImgURL" style="max-width:150px;max-height:150px;" /></a>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Ime)
+                    <a href="/Proizvods/Details/@item.Id">@Html.DisplayFor(modelItem => item.Ime)</a>      
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Proizvoditel)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cena)
+                    @Html.DisplayFor(modelItem => item.Cena) ден.
                 </td>
                 <td>
                     @if (item.DaliNaZaliha == true)
@@ -58,7 +58,9 @@
                 <td>
                     <a href="/Proizvods/Edit/@item.Id">Edit</a> |
                     <a href="/Proizvods/Details/@item.Id">Details</a> |
-                    <a href="/Proizvods/Delete/@item.Id">Delete</a>
+                    <a href="/Proizvods/Delete/@item.Id">Delete</a> <br /><br /><br />
+
+                    <button class="btn-primary">Додади во кошничка</button>
                 </td>
             </tr>
         }

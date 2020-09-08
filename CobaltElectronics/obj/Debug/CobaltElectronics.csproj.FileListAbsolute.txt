@@ -147,3 +147,4 @@ C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\De
 C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.pdb
 C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.Migrations.ProductChange.resources
 C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.Migrations.names.resources
+C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.Migrations.opisProizvod.resources
