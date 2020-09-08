@@ -1,0 +1,58 @@
+﻿@model CobaltElectronics.Models.Proizvod
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Proizvod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgURL)
+        </dt>
+
+        <dd>
+            <img src="@Model.ImgURL" style="max-height:300px;max-width:300px;"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proizvoditel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proizvoditel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaliNaZaliha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaliNaZaliha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

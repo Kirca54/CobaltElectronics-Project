@@ -16,17 +16,17 @@
         border-radius: 20px;
     }
 
-    #kategorii li {
-        margin: 0 0 10px 0;
-    }
+        #kategorii li {
+            margin: 0 0 10px 0;
+        }
 
-    #kategorii li a {
-        color: black;
-    }
+            #kategorii li a {
+                color: black;
+            }
 
-    #kategorii li a:hover {
-        color: red;
-    }
+                #kategorii li a:hover {
+                    color: red;
+                }
 </style>
 
 <div class="row">
@@ -51,9 +51,8 @@
         @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
     </div>
 
-    <div class="col-md-4">
-        
-        @Html.Partial("ViewProizvodi")
+    <div class="col-lg-10">
+        @Html.Partial("ViewProizvods")
     </div>
     @*<div class="col-md-4">
             <h2>Web Hosting</h2>
@@ -61,3 +60,20 @@
             <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
         </div>*@
 </div>
+
+@section scripts{
+    <script>
+        $("document").ready(function () {
+            $('#proizvoditabela').DataTable({
+                "columns": [
+                    { "orderable": false },
+                    { "orderable": true },
+                    { "orderable": true },
+                    { "orderable": true },
+                    { "orderable": true },
+                    { "orderable": false },
+                ]
+            });
+        });
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<CobaltElectronics.Models.Proizvod>
+
+
+    <h2>Производи</h2>
+
+<p>
+    <a href="/Proizvods/Create">Create</a>
+</p>
+
+<table class="table" id="proizvoditabela">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImgURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proizvoditel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DaliNaZaliha)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.ImgURL" style="max-width:150px;max-height:150px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proizvoditel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cena)
+                </td>
+                <td>
+                    @if (item.DaliNaZaliha == true)
+                    {
+                         <p style="color:green">&#9989; залиха</p>
+                    }
+                    @if (item.DaliNaZaliha == false)
+                    {
+                    <p style="color:red">&#10060; залиха</p>
+                    }
+                </td>
+                <td>
+                    <a href="/Proizvods/Edit/@item.Id">Edit</a> |
+                    <a href="/Proizvods/Details/@item.Id">Details</a> |
+                    <a href="/Proizvods/Delete/@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

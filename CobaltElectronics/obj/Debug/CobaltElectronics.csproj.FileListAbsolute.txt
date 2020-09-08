@@ -145,3 +145,5 @@ C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\De
 C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.csproj.CopyComplete
 C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.dll
 C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.pdb
+C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.Migrations.ProductChange.resources
+C:\Users\stefa\source\repos\IT\Proekt\CobaltElectronics\CobaltElectronics\obj\Debug\CobaltElectronics.Migrations.names.resources
