@@ -5,22 +5,27 @@
 
 <style>
     #kategorii {
-        border: 1px solid gray;
-        background-color: cornflowerblue;
+        /*border: 1px solid gray;*/
+        border: 3px solid cornflowerblue;
+        /*background-color: cornflowerblue;*/
         border-radius: 20px;
+        padding-right: 20px;
     }
 
     #kategorii li {
-            margin: 0 0 10px 0;
-        }
+        margin: 0 0 10px 0;
+    }
 
-            #kategorii li a {
-                color: black;
-            }
+    #kategorii li a {
+        color: black;
+    }
 
-                #kategorii li a:hover {
-                    color: red;
-                }
+    #kategorii li a:hover {
+        color: red;
+    }
+    #kategorii li:hover{
+        padding-left:10px;
+    }
 </style>
 
 <div class="row">
@@ -61,7 +66,8 @@
                     { "orderable": true },
                     { "orderable": true },
                     { "orderable": false },
-                ]
+                ],
+               
             });
         });
     </script>

@@ -3,7 +3,10 @@
     <h2>Производи</h2>
 
 <p>
-    <a href="/Proizvods/Create">Нов производ</a>
+    @*@if (User.IsInRole("Moderator"))
+    {*@
+    <a class="btn btn-success" href="/Proizvods/Create">Нов производ</a>
+    @*}*@
 </p>
 
 <table class="table hover" id="proizvoditabela">
@@ -60,7 +63,7 @@
                     <a href="/Proizvods/Details/@item.Id">Details</a> |
                     <a href="/Proizvods/Delete/@item.Id">Delete</a> <br /><br /><br />
 
-                    <button class="btn-primary">Додади во кошничка</button>
+                    <button class="btn btn-primary">Додади во кошничка</button>
                 </td>
             </tr>
         }
