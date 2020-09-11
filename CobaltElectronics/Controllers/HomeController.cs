@@ -17,6 +17,51 @@ namespace CobaltElectronics.Controllers
             return View(model);
         }
 
+       public ActionResult addToCart(int Id)
+        {
+
+            
+            Dictionary<int, int> id_quantity=null;
+
+            if (Session["shoppingCart"] == null)
+            {
+                id_quantity = new Dictionary<int, int>();
+                id_quantity.Add(Id,1);
+                Session["shoppingCart"] = id_quantity;
+            }
+            else {
+                id_quantity = Session["shoppingCart"] as Dictionary<int,int>;
+                if (id_quantity.ContainsKey(Id))
+                {
+                    id_quantity[Id] += 1;
+                }
+                else {
+                    id_quantity.Add(Id,1);
+                }
+                Session["shoppingCart"] = id_quantity;
+
+            }
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult shoppingCart() {
+
+            Dictionary<int, int> id_quantity = Session["shoppingCart"] as Dictionary<int,int>;
+            if (id_quantity != null)
+            {
+                List<Proizvod> proizvodi = new List<Proizvod>();
+                foreach (int a in id_quantity.Keys)
+                {
+                    proizvodi.Add(db.Proizvods.Find(a));
+                }
+
+                return View(proizvodi);
+            }
+            else {
+                return View();
+            }
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

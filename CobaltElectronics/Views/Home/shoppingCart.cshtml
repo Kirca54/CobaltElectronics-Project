@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CobaltElectronics.Models.Proizvod>
+@{
+    ViewBag.Title = "shoppingCart";
+    Dictionary<int, int> id_quantity = Session["shoppingCart"] as Dictionary<int, int>;
+
+}
+
+<h2>shoppingCart</h2>
+<table class="table hover" id="proizvoditabela">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImgURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proizvoditel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    <a href="/Proizvods/Details/@item.Id"><img src="@item.ImgURL" style="max-width:150px;max-height:150px;" /></a>
+                </td>
+                <td>
+                    <a href="/Proizvods/Details/@item.Id">@Html.DisplayFor(modelItem => item.Ime)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proizvoditel)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Cena)*@
+                    @item.Cena.ToString("N") ден.
+                </td>
+                <td>
+                    @Html.DisplayFor(quantity=>id_quantity[item.Id])
+                   
+                </td>
+                <td>
+
+                    
+
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
