@@ -22,24 +22,33 @@ namespace CobaltElectronics.Controllers
 
             
             Dictionary<int, int> id_quantity=null;
-
+            var model = db.Proizvods.Find(Id);
             if (Session["shoppingCart"] == null)
             {
-                id_quantity = new Dictionary<int, int>();
-                id_quantity.Add(Id,1);
-                Session["shoppingCart"] = id_quantity;
+                if (model != null && model.DaliNaZaliha==true)
+                {
+
+                    id_quantity = new Dictionary<int, int>();
+
+
+                    id_quantity.Add(Id, 1);
+                    Session["shoppingCart"] = id_quantity;
+                }
             }
             else {
-                id_quantity = Session["shoppingCart"] as Dictionary<int,int>;
-                if (id_quantity.ContainsKey(Id))
+                if (model != null && model.DaliNaZaliha == true)
                 {
-                    id_quantity[Id] += 1;
+                    id_quantity = Session["shoppingCart"] as Dictionary<int, int>;
+                    if (id_quantity.ContainsKey(Id))
+                    {
+                        id_quantity[Id] += 1;
+                    }
+                    else
+                    {
+                        id_quantity.Add(Id, 1);
+                    }
+                    Session["shoppingCart"] = id_quantity;
                 }
-                else {
-                    id_quantity.Add(Id,1);
-                }
-                Session["shoppingCart"] = id_quantity;
-
             }
 
             return RedirectToAction("Index");
@@ -60,6 +69,15 @@ namespace CobaltElectronics.Controllers
             else {
                 return View();
             }
+        }
+        public ActionResult removeFromCart(int Id)
+        {
+
+            Dictionary<int, int> id_quantity = Session["shoppingCart"] as Dictionary<int, int>;
+            if (id_quantity.ContainsKey(Id)) {
+                id_quantity.Remove(Id);
+            }
+            return RedirectToAction("shoppingCart");
         }
 
         public ActionResult About()

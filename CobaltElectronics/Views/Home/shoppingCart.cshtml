@@ -27,6 +27,8 @@
             <th>
                 Total
             </th>
+            <th>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -49,13 +51,20 @@
                     @item.Cena.ToString("N") ден.
                 </td>
                 <td>
-                    @Html.DisplayFor(quantity=>id_quantity[item.Id])
+                    @Html.DisplayFor(quantity => id_quantity[item.Id])
                    
                 </td>
                 <td>
-
-                    
-
+                    @{var total = id_quantity[item.Id] * item.Cena;
+                        <span>@total</span>
+                        }
+                </td>
+                <td>
+                    @Html.ActionLink("Извади од кошничка", // <-- Link text
+                                   "removeFromCart", // <-- Action Method Name
+                                   new { id = item.Id }, // <-- Route value
+                                   new { @class = "btn-primary" } // <-- htmlArguments
+                                  )
                 </td>
             </tr>
 
