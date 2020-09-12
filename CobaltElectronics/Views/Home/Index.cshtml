@@ -63,7 +63,8 @@
 @section scripts{
     <script>
         $("document").ready(function () {
-            $('#proizvoditabela').DataTable({
+
+            var table = $('#proizvoditabela').DataTable({
                 "order": [[3, "desc"]],
                 "columns": [
                     { "orderable": false },
@@ -73,6 +74,19 @@
                     { "orderable": true },
                     { "orderable": false },
                 ],    
+            });
+            $(".js-delete").on("click", function () {
+                alert("Raboti click");
+                var button = $(this);
+                
+                //$.ajax({
+                //    //druga opcija:
+                //    url: "/Proizvods/Delete/" + button.attr("data-album-id"),
+                //    method: "GET",
+                //    success: function () {
+                //        table.row(button.parents("tr")).remove().draw();
+                //    }
+                //});
             });
         });
     </script>

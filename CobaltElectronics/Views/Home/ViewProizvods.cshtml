@@ -46,7 +46,7 @@
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.Cena)*@
-                    @item.Cena.ToString("N") ден.
+                    @item.Cena.ToString("N")
                 </td>
                 <td>
                     @if (item.DaliNaZaliha == true)
@@ -61,7 +61,10 @@
                 <td>
                     <a href="/Proizvods/Edit/@item.Id">Уреди</a> |
                     <a href="/Proizvods/Details/@item.Id">Детали</a> |
-                    <a href="/Proizvods/Delete/@item.Id">Избриши</a> <br /><br /><br />
+                    @*<a href="/Proizvods/Delete/@item.Id">Избриши</a>*@
+                    <button class="btn btn-link js-delete" data-listing-id="@item.Id">Избриши</button>
+                    
+                    <br /><br /><br />
 
                     <button class="btn btn-primary">Додади во кошничка</button>
                 </td>

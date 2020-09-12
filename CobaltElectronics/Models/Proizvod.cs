@@ -20,7 +20,7 @@ namespace CobaltElectronics.Models
         [Display(Name = "Производител")]
         public string Proizvoditel { get; set; }
         [Required]
-        [Display(Name = "Цена")]    
+        [Display(Name = "Цена (ден.)")]    
         public float Cena { get; set; }
         [Display(Name = "Залиха")]
         public bool DaliNaZaliha { get; set; }
