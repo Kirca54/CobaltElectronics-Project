@@ -65,7 +65,7 @@
         $("document").ready(function () {
 
             var table = $('#proizvoditabela').DataTable({
-                "order": [[3, "desc"]],
+                "order": [[3, "asc"]],
                 "columns": [
                     { "orderable": false },
                     { "orderable": true },
@@ -75,18 +75,33 @@
                     { "orderable": false },
                 ],    
             });
-            $(".js-delete").on("click", function () {
-                alert("Raboti click");
+            $("#proizvoditabela .js-delete").on("click", function () {
                 var button = $(this);
-                
-                //$.ajax({
-                //    //druga opcija:
-                //    url: "/Proizvods/Delete/" + button.attr("data-album-id"),
-                //    method: "GET",
-                //    success: function () {
-                //        table.row(button.parents("tr")).remove().draw();
-                //    }
-                //});
+                bootbox.confirm({
+                    message: "Дали сте сигурни?",
+                    size: 'small',
+                    buttons: {
+                        confirm: {
+                            label: 'Да',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Не',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/ProizvodsApi/" + button.attr("data-listing-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    table.row(button.parents("tr")).remove().draw();
+                                }
+                            });
+                        }
+                    }
+                });
             });
         });
     </script>
