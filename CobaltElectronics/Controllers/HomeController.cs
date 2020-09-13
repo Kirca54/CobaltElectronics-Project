@@ -19,8 +19,7 @@ namespace CobaltElectronics.Controllers
 
        public ActionResult addToCart(int Id)
         {
-
-            
+  
             Dictionary<int, int> id_quantity=null;
             var model = db.Proizvods.Find(Id);
             if (Session["shoppingCart"] == null)
