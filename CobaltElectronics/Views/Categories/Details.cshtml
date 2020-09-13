@@ -26,7 +26,7 @@
     @foreach (var item in Model.proizvodi)
     {
         <li>
-            <a>@item.Ime</a>
+            <a href="/Proizvods/Details/@item.Id">@item.Ime</a>
         </li>
     }
 
