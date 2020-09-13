@@ -68,16 +68,13 @@
 
                     <br /><br /><br />
 
-                    
                             @Html.ActionLink("Додади во кошничка", // <-- Link text
                                          "addToCart", // <-- Action Method Name
                                          new { id = item.Id }, // <-- Route value
                                          new { @class = "btn btn-primary" } // <-- htmlArguments
-                                        );
-
+                                        )
                 </td>
-            </tr>
-                
+            </tr>            
             }
     </tbody>
 </table>

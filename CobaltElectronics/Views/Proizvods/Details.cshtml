@@ -67,7 +67,12 @@
     </dl>
 
     <div class="col-md-6">
-        <button class="btn btn-primary">Додади во кошничка</button>
+        @Html.ActionLink("Додади во кошничка", // <-- Link text
+                        "addToCart", // <-- Action Method Name
+                        "Home",
+                        new { id = Model.Id }, // <-- Route value
+                        new { @class = "btn btn-primary" } // <-- htmlArguments
+                        )
     </div>
 
 </div>

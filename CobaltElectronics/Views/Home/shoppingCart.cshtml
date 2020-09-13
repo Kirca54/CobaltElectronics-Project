@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<CobaltElectronics.Models.Proizvod>
 @{
-    ViewBag.Title = "shoppingCart";
+    ViewBag.Title = "Shopping Cart";
     Dictionary<int, int> id_quantity = Session["shoppingCart"] as Dictionary<int, int>;
 
 }
 
-<h2>shoppingCart</h2>
+<h2>Кошничка</h2>
 <table class="table hover" id="proizvoditabela">
     <thead>
         <tr>
@@ -22,10 +22,7 @@
                 @Html.DisplayNameFor(model => model.Cena)
             </th>
             <th>
-                Quantity
-            </th>
-            <th>
-                Total
+                Количина
             </th>
             <th>
             </th>
@@ -47,23 +44,16 @@
                     @Html.DisplayFor(modelItem => item.Proizvoditel)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.Cena)*@
-                    @item.Cena.ToString("N") ден.
+                    @item.Cena.ToString("N")
                 </td>
                 <td>
                     @Html.DisplayFor(quantity => id_quantity[item.Id])
-                   
-                </td>
-                <td>
-                    @{var total = id_quantity[item.Id] * item.Cena;
-                        <span>@total</span>
-                        }
                 </td>
                 <td>
                     @Html.ActionLink("Извади од кошничка", // <-- Link text
                                    "removeFromCart", // <-- Action Method Name
                                    new { id = item.Id }, // <-- Route value
-                                   new { @class = "btn-primary" } // <-- htmlArguments
+                                   new { @class = "btn btn-primary" } // <-- htmlArguments
                                   )
                 </td>
             </tr>
@@ -71,3 +61,22 @@
         }
     </tbody>
 </table>
+<div class="col-md-5">
+
+</div>
+<div class="col-md-4">
+    <a href="/Home/Index" class="btn btn-danger">Назад</a>
+    <button class="btn btn-success">Нарачај</button>
+</div>
+<div>
+    <span style="color:red;font-size:20px;font-weight:bold">Вкупно:</span>
+    @{
+        int suma = 0;
+    }
+    @foreach (var item in Model)
+    {
+        suma += id_quantity[item.Id] * Convert.ToInt32(item.Cena);
+
+    }
+    <span style="color:red;font-size:20px;font-weight:bold">@suma.ToString("N")</span>
+</div>
