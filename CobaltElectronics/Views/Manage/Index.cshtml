@@ -83,7 +83,11 @@
                 }
             }*@
     </dl>
-    @*<hr />
-    <h4>Додавање на улога за корисниците</h4>*@
+    @if (User.IsInRole("Administrator"))
+    {
+        <hr />
+        <h2>Администраторска панела</h2>
+        @Html.ActionLink("Додади корисник на улога", "AddToRole", "Account")
+    }
 
 </div>

@@ -3,10 +3,10 @@
     <h2>Производи</h2>
 
 <p>
-    @*@if (User.IsInRole("Moderator"))
-    {*@
+    @if (User.IsInRole("Moderator"))
+    {
     <a class="btn btn-success" href="/Proizvods/Create">Нов производ</a>
-    @*}*@
+    }
 </p>
 
 <table class="table hover" id="proizvoditabela">
@@ -45,7 +45,6 @@
                     @Html.DisplayFor(modelItem => item.Proizvoditel)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.Cena)*@
                     @item.Cena.ToString("N")
                 </td>
                 <td>
@@ -59,10 +58,14 @@
                     }
                 </td>
                 <td>
-                    <a href="/Proizvods/Edit/@item.Id">Уреди</a> |
-                    <a href="/Proizvods/Details/@item.Id">Детали</a> |
-                    <a class="js-delete" data-listing-id="@item.Id">Избриши</a>
-                    
+                    @if (User.IsInRole("Moderator"))
+                    {
+                        <a href="/Proizvods/Edit/@item.Id">Уреди</a><span> |</span>
+                        <a href="/Proizvods/Details/@item.Id">Детали</a><span> |</span>
+                        <a class="js-delete" data-listing-id="@item.Id">Избриши</a>
+                    }
+
+
                     <br /><br /><br />
 
                     <button class="btn btn-primary">Додади во кошничка</button>

@@ -7,10 +7,10 @@
 <br />
 
 <a href="/Home/Index" class="btn btn-default">Назад</a>
-@*@if (User.IsInRole("Moderator"))
-{*@
+@if (User.IsInRole("Moderator"))
+{
     <a class="btn btn-success" href="/Proizvods/Edit/@Model.Id">Уреди</a>
-@*}*@
+}
 <h2 style="font-weight:bolder">@Model.Proizvoditel @Model.Ime</h2>
 <br />
 <div class="col-md-7">

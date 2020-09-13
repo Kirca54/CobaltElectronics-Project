@@ -52,6 +52,30 @@ namespace CobaltElectronics.Controllers
             }
         }
 
+        public ActionResult AddToRole()
+        {
+            var model = new AddToRoleModel();
+            model.roles.Add("Administrator");
+            model.roles.Add("Moderator");
+            model.roles.Add("User");
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AddToRole(AddToRoleModel model)
+        {
+            try
+            {
+                var user = UserManager.FindByEmail(model.Email);
+                UserManager.AddToRole(user.Id, model.selectedRole);
+                return RedirectToAction("Index", "Home");
+            }
+            catch(Exception ex)
+            {
+                return HttpNotFound();
+            }
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
