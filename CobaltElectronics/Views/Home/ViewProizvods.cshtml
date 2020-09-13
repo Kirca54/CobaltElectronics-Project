@@ -3,7 +3,10 @@
     <h2>Производи</h2>
 
 <p>
-    <a href="/Proizvods/Create">Нов производ</a>
+    @if (User.IsInRole("Moderator"))
+    {
+    <a class="btn btn-success" href="/Proizvods/Create">Нов производ</a>
+    }
 </p>
 
 <table class="table hover" id="proizvoditabela">
@@ -43,8 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Proizvoditel)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.Cena)*@
-                    @item.Cena.ToString("N") ден.
+                    @item.Cena.ToString("N")
                 </td>
                 <td>
                     @if (item.DaliNaZaliha == true)
@@ -57,20 +59,21 @@
                     }
                 </td>
                 <td>
-                    <a href="/Proizvods/Edit/@item.Id">Edit</a> |
-                    <a href="/Proizvods/Details/@item.Id">Details</a> |
-                    <a href="/Proizvods/Delete/@item.Id">Delete</a> <br /><br /><br />
+                    @if (User.IsInRole("Moderator"))
+                    {
+                        <a href="/Proizvods/Edit/@item.Id">Уреди</a><span> |</span>
+                        <a href="/Proizvods/Details/@item.Id">Детали</a><span> |</span>
+                        <a class="js-delete" data-listing-id="@item.Id">Избриши</a>
+                    }
+
+                    <br /><br /><br />
 
                     
                             @Html.ActionLink("Додади во кошничка", // <-- Link text
                                          "addToCart", // <-- Action Method Name
                                          new { id = item.Id }, // <-- Route value
-                                         new { @class = "btn-primary" } // <-- htmlArguments
+                                         new { @class = "btn btn-primary" } // <-- htmlArguments
                                         );
-                        
-                    
-
-
 
                 </td>
             </tr>
@@ -78,3 +81,9 @@
             }
     </tbody>
 </table>
+
+<style>
+    .js-delete:hover{
+        cursor:pointer;
+    }
+</style>

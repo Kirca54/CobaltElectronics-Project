@@ -4,54 +4,105 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.Proizvoditel @Model.Ime</h2>
+<br />
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
+<a href="/Home/Index" class="btn btn-default">Назад</a>
+@if (User.IsInRole("Moderator"))
+{
+    <a class="btn btn-success" href="/Proizvods/Edit/@Model.Id">Уреди</a>
+}
+<h2 style="font-weight:bolder">@Model.Proizvoditel @Model.Ime</h2>
+<br />
+<div class="col-md-7">
+
+    <dl>
+        <dd>
+            <img src="@Model.ImgURL" style="max-height:450px;max-width:450px;" />
+        </dd>
+    </dl>
+
+</div>
+
+<div class="col-lg-5">
+    <dl>
         <dt>
-            @*@Html.DisplayNameFor(model => model.ImgURL)*@
+            <span class="displayText">Модел:</span>
         </dt>
 
         <dd>
-            <img src="@Model.ImgURL" style="max-height:300px;max-width:300px;"/>
+            <span class="value">@Html.DisplayFor(model => model.Ime)</span>
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ime)
+            <span class="displayText">@Html.DisplayNameFor(model => model.Proizvoditel):</span>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Ime)
+            <span class="value">@Html.DisplayFor(model => model.Proizvoditel)</span>
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Proizvoditel)
+            <span class="displayText">Достапност:</span>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Proizvoditel)
+            @if (Model.DaliNaZaliha == true)
+            {
+                <p style="color:green;font-size:20px">&#9989; залиха</p>
+            }
+            @if (Model.DaliNaZaliha == false)
+            {
+                <p style="color:red;font-size:20px">&#10060; залиха</p>
+            }
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Cena)
+            <span class="displayText">@Html.DisplayNameFor(model => model.Cena):</span>
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Cena)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DaliNaZaliha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DaliNaZaliha)
+            <span class="value" style="color:red;font-size:40px">@Model.Cena.ToString("N")</span>
         </dd>
 
     </dl>
+
+    <div class="col-md-6">
+        <button class="btn btn-primary">Додади во кошничка</button>
+    </div>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Назад", "Index", "Home")
-</p>
+
+
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="col-md-12">
+    <dl>
+        <dt>
+            <span class="displayText">@Html.DisplayNameFor(model => model.Opis):</span>
+        </dt>
+        <dd>
+            <pre>@Html.DisplayFor(model => model.Opis)</pre>
+        </dd>
+    </dl>
+</div>
+
+<style>
+    .displayText {
+        font-size: 30px;
+        color: cornflowerblue;
+    }
+
+    .value {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    pre {
+        border: none;
+        background: white;
+    }
+</style>

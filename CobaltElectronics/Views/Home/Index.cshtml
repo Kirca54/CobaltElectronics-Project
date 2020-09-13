@@ -5,28 +5,30 @@
 
 <style>
     #kategorii {
-        border: 1px solid gray;
-        background-color: cornflowerblue;
+        border: 3px solid cornflowerblue;
         border-radius: 20px;
+        padding-right: 20px;
     }
 
     #kategorii li {
-            margin: 0 0 10px 0;
-        }
+        margin: 0 0 10px 0;
+    }
 
-            #kategorii li a {
-                color: black;
-            }
+    #kategorii li a {
+        color: black;
+    }
 
-                #kategorii li a:hover {
-                    color: red;
-                }
+    #kategorii li a:hover {
+        color: red;
+    }
+    #kategorii li:hover{
+        padding-left:10px;
+    }
 </style>
 
 <div class="row">
     <div class="col-md-2">
-        <h2>Категории</h2>
-        <p>
+        <h2>Категории</h2>       
             <ul id="kategorii">
                 <li><a href="#">Лаптопи</a></li>
                 <li><a href="#">Персонални компјутери</a></li>
@@ -41,19 +43,27 @@
                 <li><a href="#">Алати и помагала</a></li>
                 <li><a href="#">Здравје и спорт</a></li>
             </ul>
-        </p>
     </div>
 
-    <div class="col-lg-10">
+    <div class="col-md-10">
         @Html.Partial("ViewProizvods")
     </div>
+
+    <br /> 
+    <br />
+    <br />
+
+    @*<div class="col-xs-1" id="dailydeals">
+        @Ajax.ActionLink()
+    </div>*@
 </div>
 
 @section scripts{
     <script>
         $("document").ready(function () {
-            $('#proizvoditabela').DataTable({
-                "order": [[3, "desc"]],
+
+            var table = $('#proizvoditabela').DataTable({
+                "order": [[3, "asc"]],
                 "columns": [
                     { "orderable": false },
                     { "orderable": true },
@@ -61,7 +71,35 @@
                     { "orderable": true },
                     { "orderable": true },
                     { "orderable": false },
-                ]
+                ],    
+            });
+            $("#proizvoditabela .js-delete").on("click", function () {
+                var button = $(this);
+                bootbox.confirm({
+                    message: "Дали сте сигурни?",
+                    size: 'small',
+                    buttons: {
+                        confirm: {
+                            label: 'Да',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'Не',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/ProizvodsApi/" + button.attr("data-listing-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    table.row(button.parents("tr")).remove().draw();
+                                }
+                            });
+                        }
+                    }
+                });
             });
         });
     </script>

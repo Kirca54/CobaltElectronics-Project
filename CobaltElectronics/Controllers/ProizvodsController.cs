@@ -46,7 +46,7 @@ namespace CobaltElectronics.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ImgURL,Ime,Proizvoditel,Cena,DaliNaZaliha")] Proizvod proizvod)
+        public ActionResult Create([Bind(Include = "Id,ImgURL,Ime,Proizvoditel,Cena,DaliNaZaliha,Opis")] Proizvod proizvod)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace CobaltElectronics.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ImgURL,Ime,Proizvoditel,Cena,DaliNaZaliha")] Proizvod proizvod)
+        public ActionResult Edit([Bind(Include = "Id,ImgURL,Ime,Proizvoditel,Cena,DaliNaZaliha,Opis")] Proizvod proizvod)
         {
             if (ModelState.IsValid)
             {
