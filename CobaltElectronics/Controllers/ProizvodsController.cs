@@ -36,6 +36,7 @@ namespace CobaltElectronics.Controllers
         }
 
         // GET: Proizvods/Create
+        [Authorize(Roles ="Moderator")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +60,7 @@ namespace CobaltElectronics.Controllers
         }
 
         // GET: Proizvods/Edit/5
+        [Authorize(Roles = "Moderator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +92,7 @@ namespace CobaltElectronics.Controllers
         }
 
         // GET: Proizvods/Delete/5
+        [Authorize(Roles = "Moderator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

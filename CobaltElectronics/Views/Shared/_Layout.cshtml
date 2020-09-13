@@ -20,11 +20,6 @@
                 <a href="/Home/Index"><img src="~/Images/CompLOGO.png" style="max-height:40px; margin-top:10px; width:200px; margin-right:50px;" /></a>
             </div>
             <div class="navbar-collapse collapse">
-                @*<ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>*@
                 @Html.Partial("_LoginPartial")
                 <ul class="nav navbar-nav navbar-right"> 
                     <li><a href="/home/shoppingCart"><img src="~/Images/cartIcon.png" style="max-width:30px;max-height:30px;" /></a></li>
@@ -35,7 +30,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer style="text-align:center">
+
+        <footer style="text-align:center" class="col-md-12">
             <p>Cobalt Electronics - &copy; @DateTime.Now.Year</p>
         </footer>
     </div>

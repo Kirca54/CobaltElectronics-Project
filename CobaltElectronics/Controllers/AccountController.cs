@@ -52,6 +52,7 @@ namespace CobaltElectronics.Controllers
             }
         }
 
+        [Authorize(Roles ="Administrator")]
         public ActionResult AddToRole()
         {
             var model = new AddToRoleModel();

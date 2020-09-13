@@ -32,6 +32,6 @@ namespace CobaltElectronics.Models
 
         public System.Data.Entity.DbSet<CobaltElectronics.Models.Proizvod> Proizvods { get; set; }
 
-        public System.Data.Entity.DbSet<CobaltElectronics.Models.Kategorija> Kategorijas { get; set; }
+        public System.Data.Entity.DbSet<CobaltElectronics.Models.Category> Categories { get; set; }
     }
 }

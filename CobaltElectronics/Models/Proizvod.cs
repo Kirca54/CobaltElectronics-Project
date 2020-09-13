@@ -26,11 +26,13 @@ namespace CobaltElectronics.Models
         public bool DaliNaZaliha { get; set; }
         [Display(Name = "Опис")]
         public string Opis { get; set; }
-        public List<Prodavnica> prodavnici {get;set;}
+        public virtual List<Prodavnica> prodavnici {get;set;}
+        public virtual List<Category> categories { get; set; }
 
         public Proizvod()
         {
             prodavnici = new List<Prodavnica>();
+            categories = new List<Category>();
         }
 
 

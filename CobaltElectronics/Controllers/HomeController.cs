@@ -10,14 +10,19 @@ namespace CobaltElectronics.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var model = db.Proizvods.ToList();
+            var model = db.Proizvods.ToArray();
+            if (id != null)
+            {
+                model = db.Categories.Find(id).proizvodi.ToArray();
+                ViewBag.Table = db.Categories.Find(id).Name;
+            }
 
             return View(model);
         }
 
-       public ActionResult addToCart(int Id)
+        public ActionResult addToCart(int Id)
         {
   
             Dictionary<int, int> id_quantity=null;

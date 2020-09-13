@@ -220,8 +220,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KategorijaController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProizvodsApiController.cs" />
     <Compile Include="Controllers\ProizvodsController.cs" />
@@ -252,15 +252,23 @@
     <Compile Include="Migrations\202009082322324_fixedFields.designer.cs">
       <DependentUpon>202009082322324_fixedFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009131748561_category.cs" />
+    <Compile Include="Migrations\202009131748561_category.designer.cs">
+      <DependentUpon>202009131748561_category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009131802490_categoryInit.cs" />
+    <Compile Include="Migrations\202009131802490_categoryInit.designer.cs">
+      <DependentUpon>202009131802490_categoryInit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddToCategory.cs" />
     <Compile Include="Models\AddToRoleModel.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Kategorija.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Prodavnica.cs" />
     <Compile Include="Models\Proizvod.cs" />
-    <Compile Include="Models\ProizvodiByKategorija.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -468,11 +476,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\Kategorija\Create.cshtml" />
-    <Content Include="Views\Kategorija\Delete.cshtml" />
-    <Content Include="Views\Kategorija\Details.cshtml" />
-    <Content Include="Views\Kategorija\Edit.cshtml" />
-    <Content Include="Views\Kategorija\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -515,6 +518,12 @@
     <Content Include="Views\Proizvods\Index.cshtml" />
     <Content Include="Views\Home\ViewProizvods.cshtml" />
     <Content Include="Views\Home\shoppingCart.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\AddToCategory.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -548,6 +557,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009082322324_fixedFields.resx">
       <DependentUpon>202009082322324_fixedFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131748561_category.resx">
+      <DependentUpon>202009131748561_category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009131802490_categoryInit.resx">
+      <DependentUpon>202009131802490_categoryInit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
